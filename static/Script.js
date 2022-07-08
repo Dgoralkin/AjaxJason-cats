@@ -3,7 +3,7 @@
 
 function myfnk() {
     var cats = new XMLHttpRequest();
-    cats.open("GET", "https://learnwebcode.github.io/json-example/animals-1.json");
+    cats.open("GET", "text1.txt");
     cats.onload = function() {
         var data = JSON.parse(cats.responseText);
         display(data);

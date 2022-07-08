@@ -30,4 +30,6 @@ function display(data) {
         string += "<br><br>"
     }
     document.getElementById('demo').innerHTML = string;
+
+    document.getElementById('btn').style.visibility = "hidden";
 }

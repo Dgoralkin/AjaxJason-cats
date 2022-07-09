@@ -58,6 +58,6 @@ function responseXML() {
         }
         document.getElementById("demo4").innerHTML = txt;
     }
-    resp.open("GET", "../templates/xml_catalog.xml");
+    resp.open("GET", "https://github.com/Dgoralkin/AjaxJason-cats/blob/second/templates/xml_catalog.xml");
     resp.send();
 }

@@ -5,8 +5,14 @@ function myfnk() {
     var cats = new XMLHttpRequest();
     cats.open("GET", "https://learnwebcode.github.io/json-example/animals-1.json");
     cats.onload = function() {
+
         var data = JSON.parse(cats.responseText);
-        display(data);
+        var allHeaders = cats.getAllResponseHeaders()
+        
+        display(data)
+        displayHeaders(allHeaders)
+
+        document.getElementById("demo3").innerHTML = this.getResponseHeader("Last-Modified");
     }
     cats.send();
 }
@@ -29,7 +35,11 @@ function display(data) {
         }
         string += "<br><br>"
     }
-    document.getElementById('demo').innerHTML = string;
-
+    document.getElementById('demo1').innerHTML = string;
     document.getElementById('btn').style.visibility = "hidden";
+}
+
+
+function displayHeaders(data) {
+    document.getElementById('demo2').innerHTML = data;
 }

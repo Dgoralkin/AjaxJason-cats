@@ -13,6 +13,8 @@ function myfnk() {
         displayHeaders(allHeaders)
 
         document.getElementById("demo3").innerHTML = this.getResponseHeader("Last-Modified");
+
+        responseXML()
     }
     cats.send();
 }
@@ -42,4 +44,20 @@ function display(data) {
 
 function displayHeaders(data) {
     document.getElementById('demo2').innerHTML = data;
+}
+
+
+function responseXML() {
+    var resp = new XMLHttpRequest();
+    resp.onload = function() {
+        const xmlDoc = this.responseXML;
+        const x = xmlDoc.getElementsByTagName("ARTIST");
+        let txt = "";
+        for (let i = 0; i < x.length; i++) {
+          txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+        }
+        document.getElementById("demo4").innerHTML = txt;
+    }
+    resp.open("GET", "../templates/xml_catalog.xml");
+    resp.send();
 }
